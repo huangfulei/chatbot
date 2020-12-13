@@ -1,0 +1,78 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - Hi
+    - Hey!
+    - Hallo
+    - Good day
+    - Good morning
+    - hi
+- intent: subscribe
+  examples: |
+    - I want to get the newsletter
+    - Can you send me the newsletter?
+    - Can you sign me up for the newsletter?
+- intent: inform
+  examples: |
+    - My email is example@example.com
+    - random@example.com
+    - Please send it to anything@example.com
+    - Email is something@example.com
+    - I'm [28]{"entity":"age", "value":"28"}
+    - [28]{"entity":"age", "value":"28"}
+    - [JM]{"entity":"brand", "value":"JM"}
+#    - from [23 euro](from_price) to [30 euro](to_price)
+
+- intent: bot_challange
+  examples: |
+    - are you a bot?
+    - am I talking to a human?
+    - is this a chatbot?
+    - is this a real person?
+    - you're a bot, aren't you?
+    - who are you?
+- intent: recommend_products
+  examples: |
+    - do you have any good eye cream?
+    - any recomendation for serum?
+    - what face masks are good?
+    - I want to buy a lip balms.
+- intent: check_product_price
+  examples: |
+    - how much is this?
+    - how much is the JM face masks?
+    - waht is the price of this
+- intent: check_shipping
+  examples: |
+    - how long it takes to ship?
+    - how much is the shpping fee?
+    - free shipping?
+    - is the shipping free?
+
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - sure
+    - ok
+    - correct
+    - of course
+    - fine
+    - yeah
+
+- intent: deny
+  examples: |
+    - no
+    - never
+    - not really
+    - I don't think so
+    - never
+    - no thanks
+    - nope
+
+- intent: out_of_scope
+  examples: |
+    - that's not what i want to do
+    - you are not help
+    - nevermind

@@ -1,0 +1,24 @@
+# nlu pipeline
+language: en
+pipeline:
+  - name: WhitespaceTokenizer # breaks text into words
+  - name: RegexFeaturizer # regular expression todo: can be customised
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier # classify intent and entity
+    epochs: 100
+  - name: EntitySynonymMapper # map entity
+  - name: ResponseSelector # select response
+    epochs: 100
+
+# what do i say next(used to be rasa core)
+policies:
+  - name: MemoizationPolicy # if we see pattern in a story keep going as the story
+  - name: RulePolicy # if a rule is triggered use rule
+  - name: TEDPolicy # transformer driven policy with two hyper parameters todo: figure out
+    max_history: 5 # the attention span of the bot -> bigger lead to a long training time but better result
+    epochs: 100 # training iteration

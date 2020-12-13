@@ -1,0 +1,103 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+  - greet
+  - check_product_price
+  - inform
+  - subscribe
+  - bot_challange
+  - recommend_products
+  - check_shipping
+  - affirm
+  - deny
+  - out_of_scope
+
+slots:
+  price_range:
+    type: unfeaturized # use this type if we don't want to affect the conversation
+  age:
+    type: unfeaturized
+  brand:
+    type: unfeaturized
+  email:
+    type: unfeaturized
+    influence_conversation: false
+  requested_slot:
+    type: text
+    influence_conversation: false
+
+responses:
+  utter_greet:
+  - text: |
+      Hello! How can I help you?
+  utter_ask_email:
+  - text: |
+      What is your email address?
+  utter_subscribed:
+  - text: |
+      Check your inbox at {email} in order to finish subscribing to the newsletter!
+  - text: |
+        You're all set! Check your inbox at {email} to confirm your subscription.
+  utter_i_am_a_bot:
+  - text: |
+      I'm a bot create by Fulei!
+  utter_ask_acceptable_price:
+  - text: |
+      what is your budget?
+  utter_ask_age:
+  - text: |
+      what is your age?
+  utter_ask_brand:
+  - text: |
+      do you have any prefered brand?
+  utter_slots_values:
+  - text: |
+      Here is your requirements':'\n-budget':'{from_price} to {to_price}\n-age':'{age}\n-brand':'{brand}
+  utter_recommend_products:
+  - text: |
+      JM is a good choice for most of people
+  utter_check_product_price:
+  - text: |
+      The price is only 10 euro!
+  utter_check_shipping:
+  - text: |
+      normally the product will be shipped within one week and will be arrived in Ireland after one month.
+  utter_bye:
+  - text: |
+      Thanks! talk to you!
+actions:
+  - '...'
+  - utter_check_product_price
+  - utter_greet
+  - utter_i_am_a_bot
+  - utter_subscribed
+
+forms:
+  recommendation_form:
+    age:
+      - type: from_entity
+        entity: age
+    brand:
+      - type: from_entity
+        entity: brand
+  newsletter_form:
+    email:
+      - type: from_text
+
+entities:
+  - tools
+  - cleansers
+  - toners
+  - serum
+  - eye cream
+  - moisturiser
+  - face masks
+  - lip balms
+  - lip creams
+  - oils
+  - anti-aging
+  - anti-blemish
+  - gift sets
+  - clear skin
