@@ -1,4 +1,3 @@
-#
 rules:
   - rule: activate subscribe form
     steps:

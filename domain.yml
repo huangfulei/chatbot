@@ -1,103 +1,93 @@
-version: '2.0'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-  - greet
-  - check_product_price
-  - inform
-  - subscribe
-  - bot_challange
-  - recommend_products
-  - check_shipping
-  - affirm
-  - deny
-  - out_of_scope
-
+- greet
+- check_product_price
+- inform
+- subscribe
+- bot_challange
+- recommend_products
+- check_shipping
+- affirm
+- deny
+- out_of_scope
+entities:
+- tools
+- cleansers
+- toners
+- serum
+- eye cream
+- moisturiser
+- face masks
+- lip balms
+- lip creams
+- oils
+- anti-aging
+- anti-blemish
+- gift sets
+- clear skin
+- brand
+- age
 slots:
   price_range:
-    type: unfeaturized # use this type if we don't want to affect the conversation
+    type: unfeaturized
+    influence_conversation: false
   age:
     type: unfeaturized
+    influence_conversation: false
   brand:
     type: unfeaturized
+    influence_conversation: false
   email:
     type: unfeaturized
     influence_conversation: false
   requested_slot:
     type: text
     influence_conversation: false
-
 responses:
   utter_greet:
-  - text: |
-      Hello! How can I help you?
+  - text: "Hello! How can I help you?\n"
   utter_ask_email:
-  - text: |
-      What is your email address?
+  - text: "What is your email address?\n"
   utter_subscribed:
-  - text: |
-      Check your inbox at {email} in order to finish subscribing to the newsletter!
-  - text: |
-        You're all set! Check your inbox at {email} to confirm your subscription.
+  - text: "Check your inbox at {email} in order to finish subscribing to the newsletter!\n"
+  - text: "You're all set! Check your inbox at {email} to confirm your subscription.\n"
   utter_i_am_a_bot:
-  - text: |
-      I'm a bot create by Fulei!
+  - text: "I'm a bot create by Fulei!\n"
   utter_ask_acceptable_price:
-  - text: |
-      what is your budget?
+  - text: "what is your budget?\n"
   utter_ask_age:
-  - text: |
-      what is your age?
+  - text: "what is your age?\n"
   utter_ask_brand:
-  - text: |
-      do you have any prefered brand?
+  - text: "do you have any prefered brand?\n"
   utter_slots_values:
-  - text: |
-      Here is your requirements':'\n-budget':'{from_price} to {to_price}\n-age':'{age}\n-brand':'{brand}
+  - text: "Here is your requirements':'\\n-budget':'{from_price} to {to_price}\\n-age':'{age}\\\
+      n-brand':'{brand}\n"
   utter_recommend_products:
-  - text: |
-      JM is a good choice for most of people
+  - text: "JM is a good choice for most of people\n"
   utter_check_product_price:
-  - text: |
-      The price is only 10 euro!
+  - text: "The price is only 10 euro!\n"
   utter_check_shipping:
-  - text: |
-      normally the product will be shipped within one week and will be arrived in Ireland after one month.
+  - text: "normally the product will be shipped within one week and will be arrived\
+      \ in Ireland after one month.\n"
   utter_bye:
-  - text: |
-      Thanks! talk to you!
+  - text: "Thanks! talk to you!\n"
 actions:
-  - '...'
-  - utter_check_product_price
-  - utter_greet
-  - utter_i_am_a_bot
-  - utter_subscribed
-
+- '...'
+- utter_check_product_price
+- utter_greet
+- utter_i_am_a_bot
+- utter_subscribed
+- recommend_products
 forms:
   recommendation_form:
     age:
-      - type: from_entity
-        entity: age
+    - entity: age
+      type: from_entity
     brand:
-      - type: from_entity
-        entity: brand
+    - entity: brand
+      type: from_entity
   newsletter_form:
     email:
-      - type: from_text
-
-entities:
-  - tools
-  - cleansers
-  - toners
-  - serum
-  - eye cream
-  - moisturiser
-  - face masks
-  - lip balms
-  - lip creams
-  - oils
-  - anti-aging
-  - anti-blemish
-  - gift sets
-  - clear skin
+    - type: from_text
