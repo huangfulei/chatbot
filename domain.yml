@@ -12,6 +12,7 @@ intents:
 - affirm
 - deny
 - out_of_scope
+- be_polite
 entities:
 - tools
 - cleansers
@@ -60,7 +61,7 @@ responses:
   utter_ask_age:
   - text: "what is your age?\n"
   utter_ask_brand:
-  - text: "do you have any prefered brand?\n"
+  - text: "do you have any preferred brand?\n"
   utter_slots_values:
   - text: "Here is your requirements':'\\n-budget':'{from_price} to {to_price}\\n-age':'{age}\\\
       n-brand':'{brand}\n"
@@ -73,6 +74,8 @@ responses:
       \ in Ireland after one month.\n"
   utter_bye:
   - text: "Thanks! talk to you!\n"
+  utter_be_polite:
+  - text: You are welcome
 actions:
 - '...'
 - utter_check_product_price
@@ -80,6 +83,7 @@ actions:
 - utter_i_am_a_bot
 - utter_subscribed
 - recommend_products
+- utter_be_polite
 forms:
   recommendation_form:
     age:

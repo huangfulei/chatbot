@@ -19,11 +19,9 @@ nlu:
     - random@example.com
     - Please send it to anything@example.com
     - Email is something@example.com
-    - I'm [28]{"entity":"age", "value":"28"}
-    - [28]{"entity":"age", "value":"28"}
-    - [JM]{"entity":"brand", "value":"JM"}
-#    - from [23 euro](from_price) to [30 euro](to_price)
-
+    - I'm [28](age)
+    - [28](age)
+    - [JM](brand)
 - intent: bot_challange
   examples: |
     - are you a bot?
@@ -43,13 +41,14 @@ nlu:
     - how much is this?
     - how much is the JM face masks?
     - waht is the price of this
+    - what is the price?
+    - can you help me to check the price for JM face masks, please?
 - intent: check_shipping
   examples: |
     - how long it takes to ship?
     - how much is the shpping fee?
     - free shipping?
     - is the shipping free?
-
 - intent: affirm
   examples: |
     - yes
@@ -60,19 +59,19 @@ nlu:
     - of course
     - fine
     - yeah
-
 - intent: deny
   examples: |
     - no
     - never
     - not really
     - I don't think so
-    - never
     - no thanks
     - nope
-
 - intent: out_of_scope
   examples: |
     - that's not what i want to do
     - you are not help
     - nevermind
+- intent: be_polite
+  examples: |
+    - thanks
