@@ -4,19 +4,19 @@ rules:
       - intent: subscribe
       - action: newsletter_form
       - active_loop: newsletter_form
-  - rule: activate recommendation form
-    steps:
-      - intent: recommend_products
-      - action: recommendation_form
-      - active_loop: recommendation_form
-
-  - rule: submit recommendation form
-    condition:
-      - active_loop: recommendation_form
-    steps:
-      - action: recommend_products
-      - active_loop: null
-      - action: utter_bye
+#  - rule: activate recommendation form
+#    steps:
+#      - intent: recommend_products
+#      - action: recommendation_form
+#      - active_loop: recommendation_form
+#
+#  - rule: submit recommendation form
+#    condition:
+#      - active_loop: recommendation_form
+#    steps:
+#      - action: recommend_products
+#      - active_loop: null
+#      - action: utter_bye
 
   - rule: submit form
     condition:
