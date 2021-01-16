@@ -5,7 +5,6 @@ intents:
 - greet
 - check_product_price
 - inform
-- subscribe
 - bot_challange
 - recommend_products
 - check_shipping
@@ -13,6 +12,7 @@ intents:
 - deny
 - out_of_scope
 - be_polite
+- subscribe
 entities:
 - tools
 - cleansers
@@ -28,8 +28,11 @@ entities:
 - anti-blemish
 - gift sets
 - clear skin
+- price_range
+- product category
 - brand
 - age
+- email
 slots:
   price_range:
     type: unfeaturized
@@ -44,7 +47,7 @@ slots:
     type: unfeaturized
     influence_conversation: false
   requested_slot:
-    type: text
+    type: unfeaturized
     influence_conversation: false
 responses:
   utter_greet:
@@ -56,14 +59,14 @@ responses:
   - text: "You're all set! Check your inbox at {email} to confirm your subscription.\n"
   utter_i_am_a_bot:
   - text: "I'm a bot create by Fulei!\n"
-  utter_ask_acceptable_price:
+  utter_ask_price_range:
   - text: "what is your budget?\n"
   utter_ask_age:
   - text: "what is your age?\n"
   utter_ask_brand:
   - text: "do you have any preferred brand?\n"
   utter_slots_values:
-  - text: "Here is your requirements':'\\n-budget':'{from_price} to {to_price}\\n-age':'{age}\\\
+  - text: "Here is your requirements':'\\n-budget':'{price range} \\n-age':'{age}\\\
       n-brand':'{brand}\n"
   utter_recommend_products:
   - text: "JM is a good choice for most of people\n"
@@ -91,6 +94,9 @@ forms:
       type: from_entity
     brand:
     - entity: brand
+      type: from_entity
+    price_range:
+    - entity: price_range
       type: from_entity
   newsletter_form:
     email:

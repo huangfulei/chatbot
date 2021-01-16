@@ -4,10 +4,12 @@ stories:
     steps:
       - intent: check_shipping
       - action: utter_check_shipping
-  - story: get recommendations
-    steps:
-      - intent: recommend_products
-      - action: utter_recommend_products
+#  - story: get recommendations happy path
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: recommend_products
+#      - action: utter_recommend_products
   - story: greet and subscribe
     steps:
       - intent: greet

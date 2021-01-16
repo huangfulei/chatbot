@@ -15,13 +15,15 @@ nlu:
     - Can you sign me up for the newsletter?
 - intent: inform
   examples: |
-    - My email is example@example.com
-    - random@example.com
-    - Please send it to anything@example.com
-    - Email is something@example.com
+    - My email is [example@example.com](email)
+    - [random@example.com](email)
+    - Please send it to [anything@example.com](email)
+    - Email is [something@example.com](email)
     - I'm [28](age)
     - [28](age)
     - [JM](brand)
+    - [30 euro](price_range)
+    - around [20 euro](price_range)
 - intent: bot_challange
   examples: |
     - are you a bot?
@@ -32,10 +34,10 @@ nlu:
     - who are you?
 - intent: recommend_products
   examples: |
-    - do you have any good eye cream?
-    - any recomendation for serum?
-    - what face masks are good?
-    - I want to buy a lip balms.
+    - do you have any good [eye cream](product category)?
+    - any recomendation for [serum](product category)?
+    - what [face masks](product category) are good?
+    - I want to buy a [lip balms](product category).
 - intent: check_product_price
   examples: |
     - how much is this?
@@ -72,6 +74,10 @@ nlu:
     - that's not what i want to do
     - you are not help
     - nevermind
+    - how old are you?
+    - tell me the weather
+    - I already told you that
+    - I changed my mind
 - intent: be_polite
   examples: |
     - thanks
