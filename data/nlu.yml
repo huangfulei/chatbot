@@ -1,37 +1,21 @@
 version: "2.0"
 nlu:
-- intent: greet
-  examples: |
-    - Hi
-    - Hey!
-    - Hallo
-    - Good day
-    - Good morning
-    - hi
-- intent: subscribe
-  examples: |
-    - I want to get the newsletter
-    - Can you send me the newsletter?
-    - Can you sign me up for the newsletter?
 - intent: inform
   examples: |
     - My email is [example@example.com](email)
     - [random@example.com](email)
+    - [huangfulei1027@gmail.com](email)
     - Please send it to [anything@example.com](email)
     - Email is [something@example.com](email)
     - I'm [28](age)
     - [28](age)
     - [JM](brand)
-    - [30 euro](price_range)
-    - around [20 euro](price_range)
-- intent: bot_challange
-  examples: |
-    - are you a bot?
-    - am I talking to a human?
-    - is this a chatbot?
-    - is this a real person?
-    - you're a bot, aren't you?
-    - who are you?
+    - [30 euro](budget)
+    - around [20 euro](budget)
+    - [debit card](payment_method)
+    - [credit card](payment_method)
+    - [paypal](payment_method)
+    - [apple pay](payment_method)
 - intent: recommend_products
   examples: |
     - do you have any good [eye cream](product category)?
@@ -51,33 +35,93 @@ nlu:
     - how much is the shpping fee?
     - free shipping?
     - is the shipping free?
+- intent: check_product_stock
+  examples: |
+    - is the [face mask](product category) still available?
+    - how many of the [eye craem](product category) you have?
+- intent: order
+  examples: |
+    - I want to buy [one](quantity) please
+    - get me [1](quantity)
+    - how can I order?
+    - I want to buy this
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - hey there
+    - Hi
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you around
+    - see you later
 - intent: affirm
   examples: |
     - yes
     - indeed
+    - of course
+    - that sounds good
+    - correct
     - sure
     - ok
-    - correct
-    - of course
+    - why not
+    - ok great
+    - yes I did
+    - yeah, great
+    - pretty good
     - fine
-    - yeah
+    - You bet
+    - I sure did
+    - more or less
 - intent: deny
   examples: |
     - no
     - never
-    - not really
     - I don't think so
+    - no way
+    - not really
+    - none
+    - absolutely not
     - no thanks
+    - didn't do any
+    - no I didn't
+    - could have been better
+    - not great
     - nope
+- intent: thankyou
+  examples: |
+    - okay great thanks
+    - thank you
+    - sure thanks
+    - thanks bye
+    - thanks
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
 - intent: out_of_scope
   examples: |
-    - that's not what i want to do
-    - you are not help
-    - nevermind
-    - how old are you?
+    - that's not what I want to do
+    - wait stop
+    - you're no help
+    - this is no help at all
+    - how old are you
+    - I want to order a pizza
     - tell me the weather
+    - this isn't working
     - I already told you that
+    - don't like that
+    - I don't want to tell you that
+    - none of your business
+    - that's not right
+    - stop asking
+    - nevermind
+    - I want to do something else
     - I changed my mind
-- intent: be_polite
-  examples: |
-    - thanks

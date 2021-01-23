@@ -1,38 +1,43 @@
 rules:
-  - rule: activate subscribe form
+  - rule: order happy path
     steps:
-      - intent: subscribe
-      - action: newsletter_form
-      - active_loop: newsletter_form
-
-  - rule: submit subscribe form
+      - intent: order
+      - action: order_form
+      - active_loop: order_form
+  - rule: submit order form
     condition:
-      - active_loop: newsletter_form
+      - active_loop: order_form
     steps:
-      - action: newsletter_form
+      - action: order_form
       - active_loop: null
-      - action: utter_subscribed
-
-  - rule: activate recommendation form
-    steps:
-      - intent: recommend_products
-      - action: recommendation_form
-      - active_loop: recommendation_form
-
-  - rule: submit recommendation form
-    condition:
-      - active_loop: recommendation_form
-    steps:
-      - action: recommend_products
-      - active_loop: null
-      - slot_was_set:
-          - requested_slot: null
+      - action: action_submit_results
       - action: utter_slots_values
-      - action: utter_bye
-
-
-#
-# - rule: response to FAQs¬
-#   steps:
-#   - intent: faq
-#   - action: utter_faq
+  - rule: check shipping info
+    steps:
+      - intent: check_shipping
+      - action: utter_shipping
+  - rule: check product price
+    steps:
+      - intent: check_product_price
+      - action: utter_product_price
+  - rule: check product stock
+    steps:
+      - intent: check_product_stock
+      - action: utter_product_stock
+  - rule: Greeting
+    steps:
+      - intent: greet
+      - action: utter_greet
+  - rule: Goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+  - rule: Thanks
+    steps:
+      - intent: thankyou
+      - action: utter_no_worries
+      - action: utter_goodbye
+  - rule: Bot challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
